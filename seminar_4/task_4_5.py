@@ -29,24 +29,28 @@ else:
     max = d1["max_k"]
 
 result = ""
-for i in range(max, -1, -1):
+for i in range(max, 1, -1):
     print(i)
     print(d1.setdefault(f"{i}", 0), d2.setdefault(f"{i}", 0))
     if str(d1.setdefault(f"{i}", 0)) == "0" and str(d2.setdefault(f"{i}", 0)) == "0":
         continue
     elif str(d1.setdefault(f"{i}", 0)) == "0":
-        print("jr1")
         result += str(int(str(d2.setdefault(f"{i}"))))
-        result +="x + "
+        result +=f"x^{i} + "
     elif str(d2.setdefault(f"{i}", 0)) == "0":
-        print("jr2")
         result += str(int(str(d1.setdefault(f"{i}"))))
-        result +="x + "
+        result +=f"x^{i} + "
     else:
         result += str(int(str(d1.setdefault(f"{i}", "0"))) + int(str(d2.setdefault(f"{i}", "0"))))
-        result +="x + "
+        result +=f"x^{i} + "
+result += str(int(str(d1[0])) + int(str(d2[0])))
+result += "x + "
 result += str(int(str(d1[-1])) + int(str(d2[-1])))
 result +=" = 0"
 
 print("Результат сложения многочленов из файлов task_4_5_1.txt и  task_4_5_2.txt")
 print(f"{result}")
+
+file = open("seminar_4\\task_4_5.txt", "w")
+file.write(result)
+file.close()
