@@ -42,10 +42,7 @@ def csvconvert(filename, mode):
         line = line.rstrip('\n').split('|')
         for i in range(len(line)):
             line[i] = line[i].strip()
-            # fcsv.write(i)
-            line_str += line[i] + ','
-            # print(line_str)
-        line_str.rstrip(',')
-        print(line_str)
+            fcsv.write(line[i] + '; ')
+        fcsv.write('\n')
 
 csvconvert('seminar_7\\inputphonebook.txt', 'r')

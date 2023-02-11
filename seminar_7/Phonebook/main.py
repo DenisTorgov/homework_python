@@ -15,6 +15,6 @@ while action != 0:
         controller.delcontact('seminar_7\\inputphonebook.txt', 'r')
         print('ok3')
 
-    elif action == 5:
+    elif action == 4:
         controller.csvconvert('seminar_7\\inputphonebook.txt', 'r')
         print('ok3')
